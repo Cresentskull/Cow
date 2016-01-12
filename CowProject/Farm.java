@@ -16,15 +16,17 @@ public class Farm{
 		farmObjectList.add(new FlyingCow("flycow",5,5));
 	}
 	public void getInfoOfEntities(){
-		for(FarmObject x : farmObjectList)
-			System.out.println(x.toString());
+		for(FarmObject x : farmObjectList) {
+			if(x instanceof Cow)
+				System.out.println(x.toString());
+		}
 	}
 	
 	public void allEntitiesDoSomethingForAnHour() {
-		int sizeOfList = farmObjectList.size();
+		int sizeOfList = getSizeOfList();
 		for(int i = 0; i < sizeOfList; i++){
+			farmObjectList.get(i).updateTime(time);
 			farmObjectList.get(i).doStuffForAnHour();
-			System.out.print(".");
 		}
 	}
 	public void growSomeGrass() {
@@ -34,12 +36,13 @@ public class Farm{
 
 		Random rand = new Random();
 		for(int i = 0; i < sizeOfList; i++){
-			int randInt = rand.nextInt(1)*2-1;
+			int randIntX = rand.nextInt(1)*2-1;
+			int randIntY = rand.nextInt(1)*2-1;
 			if(farmObjectList.get(i) instanceof Grass) {
 				boolean canIGrowGrass = ((Grass)farmObjectList.get(i)).canCreateNewGrass();
-				System.out.println(canIGrowGrass);
-				grassNewX = farmObjectList.get(i).coordinateX+randInt;
-				grassNewY = farmObjectList.get(i).coordinateY+randInt;
+//				System.out.println(canIGrowGrass);
+				grassNewX = farmObjectList.get(i).coordinateX+randIntX;
+				grassNewY = farmObjectList.get(i).coordinateY+randIntY;
 		//		canIGrowGrass = checkCollision(grassNewX, grassNewY);
 				
 				if(canIGrowGrass)
@@ -56,7 +59,7 @@ public class Farm{
 	}
 	public boolean checkCollision(int x, int y){
 		for(int i = 0; i < farmObjectList.size(); i++){
-			if((x == farmObjectList.get(i).coordinateX) && (y == farmObjectList.get(i).coordinateY))
+			if(((x == farmObjectList.get(i).coordinateX) && (y == farmObjectList.get(i).coordinateY)) || (y < 0) || (x < 0) || (y > 100) || (x > 100))
 				return true;
 		}
 		return false;
@@ -64,5 +67,6 @@ public class Farm{
 
 	public void updateTime(int time){
 		this.time = time;
+//		System.out.println(time);
 	}
 }

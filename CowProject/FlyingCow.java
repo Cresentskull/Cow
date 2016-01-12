@@ -5,19 +5,14 @@ public class FlyingCow extends Cow {
 	}
 	public void move() {
 		Random rand = new Random();
-		int newX = rand.nextInt(10) + 1;
-		int newY = rand.nextInt(10) + 1;
-		boolean isOccupied = false;
-		for(int i = 0; i < farmObjectList.size(); i++) {
-				if((newX == farmObjectList.get(i).coordinateX) && (newY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Cow) {
-					isOccupied = true;
-				}
-			}
-			if(isOccupied != true){
-				this.coordinateX = newX;
-				this.coordinateY = newY;
-				System.out.println(newX+","+newY);
-				super.doStuffForAnHour();
-			}
+		int newX = rand.nextInt(100) + 1;
+		int newY = rand.nextInt(100) + 1;
+		Boolean canMove = !checkCollision(newX, newY);
+
+		if(canMove){
+			this.coordinateX = newX;
+			this.coordinateY = newY;
+		}
+		
 	}
 }

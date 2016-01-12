@@ -1,8 +1,8 @@
-public abstract class FarmObject extends Farm1{
+public abstract class FarmObject extends Farm{
 	public int coordinateX;
 	public int coordinateY;
 	public int amount;
 	public abstract void doStuffForAnHour();
 	public abstract void remove();
-	public abstract String toString();
+//	public abstract String toString();
 } 
