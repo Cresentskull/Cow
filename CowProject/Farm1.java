@@ -2,7 +2,11 @@ import java.util.*;
 import java.lang.*;
 public class Farm1{
 	public int time;
+	public String name;
 	public ArrayList<FarmObject> farmObjectList = new ArrayList<>(5);
+	
+	public Farm1() {
+	}
 	
 	public void setupNewFarm(){
 		farmObjectList.add(new Cow("daycow", 10, 10));

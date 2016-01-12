@@ -18,8 +18,8 @@ public class Grass extends FarmObject {
 		int deltaY = 0;
 		Random rand = new Random();
 		boolean bool = true;
-		double chanceOfSpread = amount*.1;
-		if(rand.nextInt(100)+1 > chanceOfSpread) {
+		double chanceOfSpread = amount;
+		if(rand.nextInt(100)+1 < chanceOfSpread) {
 			return 0;
 		}
 		else {
