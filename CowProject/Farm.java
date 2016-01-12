@@ -41,7 +41,7 @@ public class Farm{
 //				System.out.println(canIGrowGrass);
 				grassNewX = farmObjectList.get(i).coordinateX+random[0];
 				grassNewY = farmObjectList.get(i).coordinateY+random[1];
-				canIGrowGrass = checkCollision(grassNewX, grassNewY);
+				canIGrowGrass = !checkCollision(grassNewX, grassNewY);
 				
 				if(canIGrowGrass)
 					if(farmObjectList.get(i) instanceof PoisonedGrass)
@@ -59,7 +59,7 @@ public class Farm{
 		if ((y < 0) || (y>100) || (x<0) || (x>100))
 				return true;
 		for(int i = 0; i < farmObjectList.size(); i++){
-			if((x == farmObjectList.get(i).coordinateX) && (y == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Cow)
+			if((x == farmObjectList.get(i).coordinateX) && (y == farmObjectList.get(i).coordinateY))
 				return true;
 		}
 		return false;

@@ -28,13 +28,13 @@ public class Cow extends FarmObject {
 			System.out.println(this.name+" is awake");
 			move();
 			eat();
-			makeHungry();
 			kill();
 		}
 		else
 			System.out.println(this.name+" is asleep");
+		makeHungry();
 		this.age++;
-		this.hungriness = hungriness+2;
+
 	}
 	public void eat() {
 		for(int i = 0; i < farmObjectList.size(); i++) {
@@ -77,8 +77,9 @@ public class Cow extends FarmObject {
 	}
 	
 	public void makeHungry() {
-		hungriness++;
+		this.hungriness=this.hungriness+2;
 	}
+	
 	public void kill() {
 		Random rand = new Random();
 		if(hungriness>=100 || age>=90001) {
@@ -94,7 +95,7 @@ public class Cow extends FarmObject {
 	}
 	public String toString() {
 		return 
-		this.name +", "+this.coordinateX+", "+this.coordinateY+", "+this.hungriness+", "+this.sicknessLevel+", "+this.age
+		this.name +", "+"x: "+this.coordinateX+", y: "+this.coordinateY+", h: "+this.hungriness+", s: "+this.sicknessLevel+", a: "+this.age
 		;
 	}
 	public void remove() {

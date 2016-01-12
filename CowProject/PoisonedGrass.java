@@ -7,7 +7,7 @@ public class PoisonedGrass extends Grass {
 	}
 	public String toString() {
 		return 
-		"poisoned "+this.amount +", "+this.coordinateX+", "+this.coordinateY
+		"poisoned a: "+this.amount +", x: "+this.coordinateX+", y: "+this.coordinateY
 		;
 	}
 }

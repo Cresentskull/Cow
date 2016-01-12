@@ -17,7 +17,7 @@ public class World {
 		System.out.println("Time now is: " +time);
 		farm.updateTime(time);
 		farm.allEntitiesDoSomethingForAnHour();
-//		farm.growSomeGrass();
+		farm.growSomeGrass();
 		farm.getInfoOfEntities();
 	}
 }

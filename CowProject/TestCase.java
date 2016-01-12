@@ -9,5 +9,6 @@ public class TestCase{
 			world.increaseTime();
 			System.out.println();
 		}
+		System.out.println(world.farm.farmObjectList.size());
 	}
 }

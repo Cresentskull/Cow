@@ -15,10 +15,9 @@ public class NocturnalCow extends Cow {
 			System.out.println(this.name+" is awake");
 			move();
 			eat();
-			makeHungry();
 			kill();
 		}
 		this.age++;
-		this.hungriness = hungriness+2;
+		makeHungry();
 	}
 }
