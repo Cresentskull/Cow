@@ -4,7 +4,7 @@ public class TestCase{
 		World world;
 		world=new World();
 		world.setupNewWorld();
-		for(int i = 0; i <= 24; i++) {
+		for(int i = 0; i <= 100; i++) {
 			System.out.println();
 			world.increaseTime();
 			System.out.println();

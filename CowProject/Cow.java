@@ -1,11 +1,11 @@
 import java.util.*;
 public class Cow extends FarmObject {
 	String name;
-	int hungriness, age, sicknessLevel, time;
+	int hungriness, age, sicknessLevel, timeon24;
 	
 	public void updateTime(int time){
-		this.time = time;
-//		System.out.println(time);
+		this.timeon24 = time%24;
+		System.out.println(timeon24);
 	}
 
 	public Cow (String name, int x, int y) {
@@ -15,11 +15,9 @@ public class Cow extends FarmObject {
 	}
 	
 	public boolean isAwake(){
-		if((this.time>=6 && this.time <=18)){
+		if((this.timeon24>=6 && this.timeon24 <=18)){
 			return true;
 		}
-		else if ((this.time>=30 && this.time <=42))
-			return true;
 		else
 			return false;
 	}
@@ -40,11 +38,13 @@ public class Cow extends FarmObject {
 		for(int i = 0; i < farmObjectList.size(); i++) {
 			if((this.coordinateX == farmObjectList.get(i).coordinateX) && (this.coordinateY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Grass) {
 				if(farmObjectList.get(i) instanceof PoisonedGrass) {
-					this.sicknessLevel = this.sicknessLevel+((PoisonedGrass)farmObjectList.get(i)).amount;
+					System.out.println(this.name+" Ate Poisoned Grass");
+					this.sicknessLevel = this.sicknessLevel+((PoisonedGrass)farmObjectList.get(i)).getAmount();
 					farmObjectList.get(i).remove();
 				}
 				else{
-					this.hungriness = this.hungriness-((Grass)farmObjectList.get(i)).amount;
+					System.out.println(this.name+" Ate Grass");
+					this.hungriness = this.hungriness-((Grass)farmObjectList.get(i)).getAmount();
 					((Grass)farmObjectList.get(i)).remove();
 				}
 			}
@@ -90,9 +90,7 @@ public class Cow extends FarmObject {
 			this.remove();
 		}
 	}
-	public String getName() {
-		return name;
-	}
+	
 	public String toString() {
 		return 
 		this.name +", "+"x: "+this.coordinateX+", y: "+this.coordinateY+", h: "+this.hungriness+", s: "+this.sicknessLevel+", a: "+this.age

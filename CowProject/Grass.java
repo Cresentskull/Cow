@@ -9,7 +9,9 @@ public class Grass extends FarmObject {
 		this.coordinateY = y;
 		this.amount = amount;
 	}
-
+	public int getAmount() {
+		return this.amount;
+	}
 	public void increaseGrass() {
 		amount++;
 	}
