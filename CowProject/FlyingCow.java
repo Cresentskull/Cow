@@ -8,8 +8,8 @@ public class FlyingCow extends Cow {
 		int newX = rand.nextInt(10) + 1;
 		int newY = rand.nextInt(10) + 1;
 		boolean isOccupied = false;
-		for(int i = 0; i < farmObjectList.length; i++) {
-				if((newX == farmObjectList[i].coordinateX) && (newY == farmObjectList[i].coordinateY) && farmObjectList[i] instanceof Cow) {
+		for(int i = 0; i < farmObjectList.size(); i++) {
+				if((newX == farmObjectList.get(i).coordinateX) && (newY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Cow) {
 					isOccupied = true;
 				}
 			}

@@ -1,4 +1,4 @@
-public abstract class FarmObject extends Farm{
+public abstract class FarmObject extends Farm1{
 	public int coordinateX;
 	public int coordinateY;
 	public int amount;

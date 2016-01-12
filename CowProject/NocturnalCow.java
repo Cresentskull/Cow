@@ -23,8 +23,8 @@ public class NocturnalCow extends Cow {
 				deltaY--;
 			}
 
-			for(int i = 0; i < farmObjectList.length; i++) {
-				if((this.coordinateX+deltaX == farmObjectList[i].coordinateX) && (this.coordinateY+deltaY == farmObjectList[i].coordinateY) && farmObjectList[i] instanceof Cow) {
+			for(int i = 0; i < farmObjectList.size(); i++) {
+				if((this.coordinateX+deltaX == farmObjectList.get(i).coordinateX) && (this.coordinateY+deltaY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Cow) {
 					isOccupied = true;
 				}
 			}

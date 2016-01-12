@@ -15,15 +15,15 @@ public class Cow extends FarmObject {
 		kill();
 	}
 	public void eat() {
-		for(int i = 0; i < farmObjectList.length; i++) {
-			if((this.coordinateX == farmObjectList[i].coordinateX) && (this.coordinateY == farmObjectList[i].coordinateY) && farmObjectList[i] instanceof Grass) {
-				if(farmObjectList[i] instanceof PoisonedGrass) {
-					this.sicknessLevel = this.sicknessLevel+((PoisonedGrass)farmObjectList[i]).amount;
-					farmObjectList[i].remove();
+		for(int i = 0; i < farmObjectList.size(); i++) {
+			if((this.coordinateX == farmObjectList.get(i).coordinateX) && (this.coordinateY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Grass) {
+				if(farmObjectList.get(i) instanceof PoisonedGrass) {
+					this.sicknessLevel = this.sicknessLevel+((PoisonedGrass)farmObjectList.get(i)).amount;
+					farmObjectList.get(i).remove();
 				}
 				else{
-					this.hungriness = this.hungriness-((Grass)farmObjectList[i]).amount;
-					((Grass)farmObjectList[i]).remove();
+					this.hungriness = this.hungriness-((Grass)farmObjectList.get(i)).amount;
+					((Grass)farmObjectList.get(i)).remove();
 				}
 			}
 		}
@@ -48,8 +48,8 @@ public class Cow extends FarmObject {
 				newY--;
 			}
 
-			for(int i = 0; i < farmObjectList.length; i++) {
-				if((this.coordinateX+newX == farmObjectList[i].coordinateX )&& (this.coordinateY+newY == farmObjectList[i].coordinateY) && farmObjectList[i] instanceof Cow) {
+			for(int i = 0; i < farmObjectList.size(); i++) {
+				if((this.coordinateX+newX == farmObjectList.get(i).coordinateX )&& (this.coordinateY+newY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Cow) {
 					isOccupied = true;
 				}
 			}
