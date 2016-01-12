@@ -2,7 +2,7 @@ import java.lang.*;
 
 public class World {
 	public int time = 6;
-	public Farm1 farm = new Farm1();
+	public Farm farm = new Farm();
 
 	public World(){}
 	

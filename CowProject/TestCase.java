@@ -4,14 +4,10 @@ public class TestCase{
 		World world;
 		world=new World();
 		world.setupNewWorld();
-		System.out.println();
-		world.increaseTime();
-		System.out.println();
-		world.increaseTime();
-		System.out.println();
-		world.increaseTime();
-//		for(int i = 0; i <= 24; i++) {
-//			world.increaseTime();
-//			System.out.println("this shit");
+		for(int i = 0; i <= 24; i++) {
+			System.out.println();
+			world.increaseTime();
+			System.out.println();
 		}
 	}
+}

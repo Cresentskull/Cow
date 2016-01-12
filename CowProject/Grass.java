@@ -13,40 +13,22 @@ public class Grass extends FarmObject {
 	public void increaseGrass() {
 		amount++;
 	}
-	public int createNewGrass() {
+	public boolean canCreateNewGrass() {
 		int deltaX = 0;
 		int deltaY = 0;
 		Random rand = new Random();
 		boolean bool = true;
 		double chanceOfSpread = amount;
 		if(rand.nextInt(100)+1 < chanceOfSpread) {
-			return 0;
+			return true;
 		}
 		else {
-			int n = rand.nextInt(4)+1;
-			if(n==1) {
-				deltaX++;
-			}
-			else if(n==2) {
-				deltaX--;
-			}
-			else if(n==3) {
-				deltaY++;
-			}
-			else if(n==4) {
-				deltaY--;
-			}
-			for(int i = 0; i < farmObjectList.size(); i++) {
-				if((this.coordinateX+deltaX == farmObjectList.get(i).coordinateX) && (this.coordinateY+deltaY == farmObjectList.get(i).coordinateY)) {
-					return 0;
-				}
-			}
-			return n;
+			return false;
 		}
 	}
 	public String toString() {
 		return 
-		this.amount +", "+this.coordinateX+", "+this.coordinateY
+		"clean "+this.amount +", "+this.coordinateX+", "+this.coordinateY
 		;
 	}
 	public void remove() {

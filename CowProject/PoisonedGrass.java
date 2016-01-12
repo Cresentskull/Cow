@@ -5,4 +5,9 @@ public class PoisonedGrass extends Grass {
 	public void increaseGrass() {
 		amount=amount+2;
 	}
+	public String toString() {
+		return 
+		"poisoned "+this.amount +", "+this.coordinateX+", "+this.coordinateY
+		;
+	}
 }
