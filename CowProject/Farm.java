@@ -1,14 +1,16 @@
 import java.util.*;
+import java.lang.*;
 public class Farm{
 	public int time;
 	public FarmObject[] farmObjectList = new FarmObject[100];
 	
-	public void setupNewFarm() {
+	public void setupNewFarm() throws NullPointerException {
 		farmObjectList[0] = new Cow("daycow", 10, 10);
 		farmObjectList[1] = new Grass(20,20,4);
 		farmObjectList[2] = new NocturnalCow("nightcow", 12, 12);
 		farmObjectList[3] = new PoisonedGrass(50,53,5);
 		farmObjectList[4] = new FlyingCow("flycow",5,5);
+		
 	}
 	
 	public void allEntitiesDoSomethingForAnHour() {

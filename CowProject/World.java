@@ -1,8 +1,9 @@
+import java.lang.*;
 public class World {
 	public int time;
 	public Farm farm;
 
-	public void setupNewWorld() {
+	public void setupNewWorld() throws NullPointerException{
 		farm.setupNewFarm();
 	}
 	
