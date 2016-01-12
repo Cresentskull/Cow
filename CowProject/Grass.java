@@ -44,6 +44,11 @@ public class Grass extends FarmObject {
 			return n;
 		}
 	}
+	public String toString() {
+		return 
+		this.amount +", "+this.coordinateX+", "+this.coordinateY
+		;
+	}
 	public void remove() {
 		this.coordinateX = -1;
 		this.coordinateY = -1;

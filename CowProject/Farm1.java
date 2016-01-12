@@ -14,12 +14,20 @@ public class Farm1{
 		farmObjectList.add(new NocturnalCow("nightcow", 12, 12));
 		farmObjectList.add(new PoisonedGrass(50,53,5));
 		farmObjectList.add(new FlyingCow("flycow",5,5));
-		
+	}
+	public void getInfoOfEntities(){
+		for(FarmObject x : farmObjectList)
+			System.out.println(x.toString());
 	}
 	
 	public void allEntitiesDoSomethingForAnHour() {
 		for(int i = 0; i < farmObjectList.size(); i++){
 			farmObjectList.get(i).doStuffForAnHour();
+			System.out.print(".");
+		}
+	}
+	public void growSomeGrass() {
+		for(int i = 0; i < farmObjectList.size(); i++){	
 			if(farmObjectList.get(i) instanceof Grass) {
 				int j = 0;
 				int createNewGrass = ((Grass)farmObjectList.get(i)).createNewGrass();
@@ -39,12 +47,10 @@ public class Farm1{
 				{
 					farmObjectList.add(new Grass(farmObjectList.get(i).coordinateX,farmObjectList.get(i).coordinateY-1, 1));
 				}
-
 			}
 		}
 	}
 	public void updateTime(int time){
 		this.time = time;
 	}
-
 }

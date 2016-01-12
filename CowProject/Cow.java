@@ -78,6 +78,11 @@ public class Cow extends FarmObject {
 	public String getName() {
 		return name;
 	}
+	public String toString() {
+		return 
+		this.name +", "+this.coordinateX+", "+this.coordinateY
+		;
+	}
 	public void remove() {
 		this.coordinateX = -1;
 		this.coordinateY = -1;
