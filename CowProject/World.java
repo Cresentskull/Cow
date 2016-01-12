@@ -2,6 +2,7 @@ import java.lang.*;
 
 public class World {
 	public int time = 6;
+	public Farm[] allFarm = new Farm[10];
 	public Farm farm = new Farm();
 
 	public World(){}
