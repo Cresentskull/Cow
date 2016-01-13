@@ -10,10 +10,10 @@ public class Farm{
 	
 	public void setupNewFarm(){
 		farmObjectList.add(new Cow("daycow", 10, 10));
-		farmObjectList.add(new Grass(20,20,4));
 		farmObjectList.add(new NocturnalCow("nightcow", 12, 12));
-		farmObjectList.add(new PoisonedGrass(50,53,5));
 		farmObjectList.add(new FlyingCow("flycow",5,5));
+		farmObjectList.add(new Grass(20,20,4));
+		farmObjectList.add(new PoisonedGrass(50,53,5));
 	}
 	public void getInfoOfEntities(){
 		for(FarmObject x : farmObjectList) {
@@ -22,11 +22,13 @@ public class Farm{
 		}
 	}
 	
-	public void allEntitiesDoSomethingForAnHour() {
+	public void allEntitiesDoSomethingForAnHour() {	
 		int sizeOfList = getSizeOfList();
 		for(int i = 0; i < sizeOfList; i++){
 			farmObjectList.get(i).updateTime(time);
 			farmObjectList.get(i).doStuffForAnHour();
+			if(farmObjectList.get(i) instanceof Cow)
+				((Cow)farmObjectList).get(i).createFarmObjectList(farmObjectList);
 		}
 	}
 	public void growSomeGrass() {

@@ -2,10 +2,15 @@ import java.util.*;
 public class Cow extends FarmObject {
 	String name;
 	int hungriness, age, sicknessLevel, timeon24;
+	ArrayList<FarmObject> farmObjectList = new ArrayList<>(5);
 	
+	public void createFarmObjectList(ArrayList<FarmObject> farmObjectList){
+		this.farmObjectList = farmObjectList;
+	}
+
 	public void updateTime(int time){
 		this.timeon24 = time%24;
-		System.out.println(timeon24);
+//		System.out.println(timeon24);
 	}
 
 	public Cow (String name, int x, int y) {
@@ -23,20 +28,23 @@ public class Cow extends FarmObject {
 	}
 	public void doStuffForAnHour() {
 		if(this.isAwake()) {
-			System.out.println(this.name+" is awake");
+//			System.out.println(this.name+" is awake");
 			move();
 			eat();
 			kill();
 		}
-		else
-			System.out.println(this.name+" is asleep");
+//		else
+//			System.out.println(this.name+" is asleep");
 		makeHungry();
 		this.age++;
 
 	}
 	public void eat() {
-		for(int i = 0; i < farmObjectList.size(); i++) {
-			if((this.coordinateX == farmObjectList.get(i).coordinateX) && (this.coordinateY == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Grass) {
+		for(int i = 2; i < farmObjectList.size(); i++) {
+			System.out.println("ate1");
+			if((this.coordinateX == farmObjectList.get(i).coordinateX) && (this.coordinateY == farmObjectList.get(i).coordinateY) && (farmObjectList.get(i) instanceof Grass)) {
+				System.out.println("ate2");
+				System.out.println(((Grass)farmObjectList.get(i)).getAmount());
 				if(farmObjectList.get(i) instanceof PoisonedGrass) {
 					System.out.println(this.name+" Ate Poisoned Grass");
 					this.sicknessLevel = this.sicknessLevel+((PoisonedGrass)farmObjectList.get(i)).getAmount();
@@ -56,7 +64,8 @@ public class Cow extends FarmObject {
 	public boolean checkCollision(int x, int y){
 		if ((y < 0) || (y>100) || (x<0) || (x>100))
 				return true;
-		for(int i = 0; i < farmObjectList.size(); i++){
+		for(int i = 0; i < super.farmObjectList.size(); i++){
+			System.out.println("c1");
 			if((x == farmObjectList.get(i).coordinateX) && (y == farmObjectList.get(i).coordinateY) && farmObjectList.get(i) instanceof Cow)
 				return true;
 		}
