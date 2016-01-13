@@ -19,7 +19,6 @@ public class NocturnalCow extends Cow {
 		if(this.isNocAwake()) {
 //			System.out.println(this.name+" is awake");
 			move();
-			super.eat();
 			kill();
 		}
 		else

@@ -27,8 +27,6 @@ public class Farm{
 		for(int i = 0; i < sizeOfList; i++){
 			farmObjectList.get(i).updateTime(time);
 			farmObjectList.get(i).doStuffForAnHour();
-			if(farmObjectList.get(i) instanceof Cow)
-				((Cow)farmObjectList).get(i).createFarmObjectList(farmObjectList);
 		}
 	}
 	public void growSomeGrass() {
@@ -54,9 +52,29 @@ public class Farm{
 
 		}
 	}
+
+	public void cowEatGrass() {
+		for(int i = 0; i < getSizeOfList(); i++){
+			if(farmObjectList.get(i) instanceof Cow) {
+				for(int j = 0; j < getSizeOfList(); j++) {
+					if((farmObjectList.get(i).coordinateX == farmObjectList.get(j).coordinateX) 
+						&& (farmObjectList.get(i).coordinateY == farmObjectList.get(j).coordinateY) 
+						&& (farmObjectList.get(j) instanceof Grass)) {
+							if(farmObjectList.get(j) instanceof PoisonedGrass){
+								((Cow)farmObjectList.get(i)).eatPoison(((Grass)farmObjectList.get(j)).getAmount());
+							}
+							((Cow)farmObjectList.get(i)).eat(((Grass)farmObjectList.get(j)).getAmount());
+							(farmObjectList.get(j)).remove();
+					}
+				}	
+			}
+		}
+	}
+	
 	public int getSizeOfList() {
 		return farmObjectList.size();
 	}
+	
 	public boolean checkCollision(int x, int y){
 		if ((y < 0) || (y>100) || (x<0) || (x>100))
 				return true;
@@ -69,8 +87,8 @@ public class Farm{
 
 	public void updateTime(int time){
 		this.time = time;
-//		System.out.println(time);
 	}
+	
 	public int[] getRandomDirection() {
 		Random rand = new Random();
 		int[] newArr = new int[] {0,0};

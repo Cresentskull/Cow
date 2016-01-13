@@ -18,6 +18,7 @@ public class World {
 		farm.updateTime(time);
 		farm.allEntitiesDoSomethingForAnHour();
 		farm.growSomeGrass();
+		farm.cowEatGrass();
 		farm.getInfoOfEntities();
 	}
 }

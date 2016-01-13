@@ -30,7 +30,6 @@ public class Cow extends FarmObject {
 		if(this.isAwake()) {
 //			System.out.println(this.name+" is awake");
 			move();
-			eat();
 			kill();
 		}
 //		else
@@ -39,24 +38,13 @@ public class Cow extends FarmObject {
 		this.age++;
 
 	}
-	public void eat() {
-		for(int i = 2; i < farmObjectList.size(); i++) {
-			System.out.println("ate1");
-			if((this.coordinateX == farmObjectList.get(i).coordinateX) && (this.coordinateY == farmObjectList.get(i).coordinateY) && (farmObjectList.get(i) instanceof Grass)) {
-				System.out.println("ate2");
-				System.out.println(((Grass)farmObjectList.get(i)).getAmount());
-				if(farmObjectList.get(i) instanceof PoisonedGrass) {
-					System.out.println(this.name+" Ate Poisoned Grass");
-					this.sicknessLevel = this.sicknessLevel+((PoisonedGrass)farmObjectList.get(i)).getAmount();
-					farmObjectList.get(i).remove();
-				}
-				else{
-					System.out.println(this.name+" Ate Grass");
-					this.hungriness = this.hungriness-((Grass)farmObjectList.get(i)).getAmount();
-					((Grass)farmObjectList.get(i)).remove();
-				}
-			}
-		}
+	public void eat(int x) {
+		this.hungriness = this.hungriness - x;
+		System.out.println(this.name+" ate "+x+" grass");
+	}
+	public void eatPoison(int x) {
+		this.sicknessLevel = this.sicknessLevel + x;
+		System.out.println(this.name+" ate "+x+" poisoned grass");
 	}
 
 

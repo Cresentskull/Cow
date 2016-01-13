@@ -34,7 +34,7 @@ public class Grass extends FarmObject {
 		;
 	}
 	public void remove() {
-		this.coordinateX = -1;
-		this.coordinateY = -1;
+		this.coordinateX = -2;
+		this.coordinateY = -2;
 	}
 }
